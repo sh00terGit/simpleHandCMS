@@ -41,15 +41,14 @@ function selectAjax(id) {
   }
   request.onreadystatechange = function(){
            if(request.status==200){    
-                        document.getElementById("form").innerHTML = "<b>"+request.responseText+"</b>";
+                        document.getElementById("form").innerHTML = "<b>"+request.title+"</b>";
                      }else if(request.status==404){
                         alert("Ошибка: запрашиваемый скрипт не найден!");
-                     }
-                      else alert("Ошибка: сервер вернул статус: "+ request.status);           
+                     }          
             }
               
     
-    request.open ('GET', url+"?id ="+ id , true);
+    request.open ('GET', url+"?id="+id , true);
     request.send ('');
   }
  

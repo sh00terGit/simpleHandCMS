@@ -18,11 +18,11 @@ class Admin extends Controller {
              $this->view->render('admin/index');
 	}
         
-        public function selectAjax() {
+        public function selectAjax() {            
             if (isset($_GET['id'])) {
                 $mapper = new NewsMapper();
-                $news = $mapper->fetchById($_GET['id']);
-                var_dump($news);
+                $news = $mapper->fetchById($_GET['id']);               
+                echo json_encode($news);
             }
         }
 	
