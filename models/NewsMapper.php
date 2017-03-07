@@ -59,5 +59,26 @@ Class NewsMapper extends Mapper {
                 ->setTitle($row['title']);
         return $nextNews;
     }
+    
+    
+    
+        public function fetchAll() {
+        $query = "SELECT id,title,text,date FROM news ";
+        $result = mysql_query($query);
+        if (!$result) {
+            exit(mysql_error());
+        }
+        $news = array();
+        for ($i = 0; $i < mysql_num_rows($result); $i++) {
+            $row = mysql_fetch_array($result, MYSQL_ASSOC);
+            $nextNews = new NewsModel();
+            $nextNews->setId($row['id'])
+                    ->setDate($row['date'])
+                    ->setText($row['text'])
+                    ->setTitle($row['title']);
+            $news[] = $nextNews;
+        }
+        return $news;
+    }
 
 }

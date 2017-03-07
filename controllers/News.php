@@ -41,7 +41,7 @@ class News extends Controller {
         
 
         public function getPage() {
-            isset($_GET['page']) ? $this->page = $_GET['page'] : $this->page = 1;
+            $this->page = (empty($_GET['page']) ? 1 : intval($_GET['page']));
         }
         
 	

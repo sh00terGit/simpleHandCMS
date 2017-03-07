@@ -1,6 +1,6 @@
 <?php
 //  SLASH (/) AFTER A PATH
-define('URL', 'http://localhost/news/');
+define('URL', 'http://task.local/');
 define('LIB', 'library/');
 define('DB_TYPE', 'mysql');
 define('DB_HOST', 'localhost');

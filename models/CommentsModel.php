@@ -10,8 +10,18 @@ Class CommentsModel {
     
     public $id;
     public $text;
-    
-    public function getId() {
+    public $newsId;
+
+    public function getNewsId() {
+        return $this->newsId;
+    }
+
+    public function setNewsId($newsId) {
+        $this->newsId = $newsId;
+        return $this;
+    }
+
+        public function getId() {
         return $this->id;
     }
 

@@ -12,7 +12,18 @@ class Admin extends Controller {
 	}
 	
 	public function index() {
-             $news = new NewsModel();
+            $mapper = new NewsMapper();
+            $news = $mapper->fetchAll();
+            $this->view->news = $news;
+             $this->view->render('admin/index');
 	}
+        
+        public function selectAjax() {
+            if (isset($_GET['id'])) {
+                $mapper = new NewsMapper();
+                $news = $mapper->fetchById($_GET['id']);
+                var_dump($news);
+            }
+        }
 	
 }
