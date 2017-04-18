@@ -16,14 +16,15 @@ class Admin extends Controller {
             $news = $mapper->fetchAll();
             $this->view->news = $news;
              $this->view->render('admin/index');
+            
 	}
         
-        public function selectAjax() {            
+        public function selectAjax() {
             if (isset($_GET['id'])) {
                 $mapper = new NewsMapper();
-                $news = $mapper->fetchById($_GET['id']);               
-                echo json_encode($news);
+                $news = $mapper->fetchById($_GET['id']);
+                echo  $news->getTitle()."|".$news->getText();
             }
         }
-	
+
 }
