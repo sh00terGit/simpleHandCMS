@@ -23,8 +23,17 @@ class Admin extends Controller {
             if (isset($_GET['id'])) {
                 $mapper = new NewsMapper();
                 $news = $mapper->fetchById($_GET['id']);
-                echo  $news->getTitle()."|".$news->getText();
+                echo  $news->getTitle()."|".$news->getText()."|".$news->getId();
             }
+        }
+        
+        
+        public function saveAjax() {
+            if(isset($_POST)) {   
+                $mapper = new NewsMapper();
+                $mapper->save($_POST);
+            }
+            
         }
 
 }

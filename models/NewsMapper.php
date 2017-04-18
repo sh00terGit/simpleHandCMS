@@ -31,13 +31,35 @@ Class NewsMapper extends Mapper {
         }
         return $news;
     }
-
-    public function insert($data) {
-        
+    
+    public function save($data) {
+        switch ($data['type']) {
+                    case 'update':
+                        $this->update($data['title'],$data['text'],$data['id']);   
+                        break;
+                    case 'add':
+                        $this->insert($data['title'],$data['text']);   
+                        break;
+                    
+                    default:
+                        break;
+                }
     }
 
-    public function update($data) {
-        
+    public function insert($title,$text) {
+         $query = "INSERT INTO news (title,text) VALUES ('$title','$text')";
+        $result = mysql_query($query);
+        if (!$result) {
+            exit(mysql_error());
+        }
+    }
+
+    public function update($title,$text ,$id) {
+        $query = "UPDATE news SET title ='$title' ,text = '$text' WHERE id = $id";
+        $result = mysql_query($query);
+        if (!$result) {
+            exit(mysql_error());
+        }
     }
 
     public function delete($id) {
