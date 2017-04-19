@@ -14,19 +14,8 @@ Class NewsModel {
     public $title;
     public $text;
     public $date;
-    
-    public $comments = array();
-    
-    
-    public function addComment($comment) {
-        require '/models/Comments.php';
-        $this->comments[] = new Comments($comment);
-        return $this;
-    }
-    
-    public function getComments() {
-        return $this->comments;
-    }
+    public $shortText;
+
 
     public function getId() {
         return $this->id;
@@ -56,9 +45,19 @@ Class NewsModel {
 
     public function setText($text) {
         $this->text = $text;
+        $this->setShortText($text);
         return $this;
     }
 
+    public function setShortText($text) {
+        $this->shortText = substr($text,0,200);
+        return $this;
+    }
+    
+    public function getShortText() {
+        return $this->shortText;
+    }
+    
     public function setDate($date) {
         $this->date = $date;
         return $this;

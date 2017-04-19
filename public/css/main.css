@@ -1,0 +1,48 @@
+/*
+*
+@author Shipul Andrey 
+ @position Nod-4 ivc
+
+*/
+/* 
+    Created on : 19.04.2017, 9:02:28
+    Author     : ivc_shipul
+*/
+
+            #content {
+                float: right ;
+                width: 100% ;
+            }
+            #navbar {
+                float: right;
+                width: 20%;
+            }
+
+            #footer {
+                clear: both ;
+            }
+
+            #header {
+                text-align: center ;
+            }
+            
+            #container {
+                margin-left: 5%;
+                width: 80%;
+                text-align: center;
+            }
+
+    .col50 {
+        float: left;
+        width: 45%;
+        text-align: left;
+        margin-left: 5%;
+    } 
+    #form {
+        visibility: hidden;
+    }
+    #newsTable {
+        margin-bottom: 20px;
+    }
+
+    

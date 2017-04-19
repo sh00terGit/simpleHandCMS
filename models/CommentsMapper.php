@@ -10,15 +10,31 @@
 Class CommentsMapper extends Mapper {
     
 
-    public function fetchByNewsId($id) {
-//        $query = "SELECT name_material,measure,price_of_one,quantity FROM materials";
+    public function fetchByNewsId($newsId) {
+        $query = "SELECT id,newsId,text FROM comments WHERE newsId =$newsId ORDER BY id DESC";
         $result = mysql_query($query);
         if (!$result) {
             exit(mysql_error());
         }
+        $comments = array();
+        for ($i = 0; $i < mysql_num_rows($result); $i++) {
+            $row = mysql_fetch_array($result, MYSQL_ASSOC);
+            $nextComment = new CommentsModel();
+            $nextComment->setId($row['id'])
+                    ->setNewsId($row['newsId'])
+                    ->setText($row['text']);
+            $comments[] = $nextComment;
+        }
+        return $comments;
+        
     }
     
-    public function insert($data){
+    public function insert( $newsId, $text) {
+         $query = "INSERT INTO comments (newsId,text) VALUES ('$newsId','$text')";
+        $result = mysql_query($query);
+        if (!$result) {
+            exit(mysql_error());
+        }
     }
 
     

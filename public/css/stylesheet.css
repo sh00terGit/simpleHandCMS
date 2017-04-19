@@ -1,0 +1,148 @@
+@charset "UTF-8";
+/* This CSS File was created by www.pixelateddesign.co.uk */
+/* This is free if you have purchased this templete please contact us useign the email */
+/* info@pixelateddesign.co.uk along with the amount you payed for your website */
+
+/* This file remains property of www.pixelateddesign.co.uk however this is free to use for personal use */
+
+body {
+	margin:0px;
+	padding:0px;
+        background-color: azure;
+        font-size: 18px;
+}
+
+#content_container {
+        margin-top: 50px;
+	margin-left:auto;
+	margin-right:auto;
+	width:70%;
+	height: 750px;
+}
+
+
+#main_container {
+	height:90px;
+	width:900px;
+	margin-left:auto;
+	margin-right:auto;
+        color: white;
+        text-align: center;
+}
+
+#logo_image {
+	width:255px;
+	height:75px;
+	margin-left:10px;
+	margin-top:15px;
+	float:left;
+	background-image: url(../images/logo.gif);
+}
+
+#top_bar_black {
+	width:100%;
+	height:90px;
+	background-color:#000000;
+        
+}
+
+#bottom_bar_black {
+	width:100%;
+	height:160px;
+	background-color:#000000;
+}
+
+#wrapper {
+	margin-left:auto;
+	margin-right:auto;
+	width:900px;
+	height: 750px;
+}
+
+.nav_button {
+	width: 70px;
+	color:#FFFFFF;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:15px;
+	margin-left:5px;
+	padding: 20px;
+        line-height: 45px;
+	text-align:center;
+	float:left;
+}
+
+
+
+.nav_button  a:visited {
+        color:white;
+}
+
+.nav_button:hover {
+	background-color:#333333;
+}
+
+#header_mainline {
+	width:500px;
+	float: left;
+        font-style: italic;
+        color: white;
+        margin-left: 100px;
+        font-size: 40px;
+        line-height: 90px;
+}
+
+
+#news_content_title {
+	font-size:35px;
+	color:#000000;
+	font-style: italic;
+}
+
+#news_content_date {
+    font-size:15px;
+	color: blue;
+        width: 100%;
+	font-style: italic;
+}
+
+#news_content_text {
+	font-size:16px;
+	color:#333333;
+        width: 100%;
+	font-style: italic;
+}
+
+#header_content_lowerboxcontent {
+	font-size:12px;
+	color:#CCCCCC;
+	
+}
+
+#header_content_tagline {
+	font-size:12px;
+	color:#333333;
+	width:500px;
+}
+
+#dataNews {
+	float:left;
+        margin-bottom: 20px;
+        width: 100%;
+}
+
+#paginator {
+    text-align: center;
+}
+
+.comment {
+    font-size: 20px;
+    margin-bottom:20px;
+    padding: 20px;
+    background-color: black;
+    border-radius: 15px;
+    color: #FFFFFF;
+}
+
+#commentBlock {
+    margin-top: 20px;
+}

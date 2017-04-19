@@ -32,7 +32,18 @@ Class NewsMapper extends Mapper {
         return $news;
     }
     
-    public function save($data) {
+    public function getCountNews(){
+        $query = "SELECT count(*) as countRows FROM news";
+        $result = mysql_query($query);
+        if (!$result) {
+            exit(mysql_error());
+        }
+        $row = mysql_fetch_assoc($result);
+        $count = $row['countRows'];
+        return $count;
+    }
+
+        public function save($data) {
         switch ($data['type']) {
                     case 'update':
                         $this->update($data['title'],$data['text'],$data['id']);   
@@ -63,7 +74,11 @@ Class NewsMapper extends Mapper {
     }
 
     public function delete($id) {
-        
+       $query = "DELETE FROM news WHERE id = $id";
+        $result = mysql_query($query);
+        if (!$result) {
+            exit(mysql_error());
+        } 
     }
 
     public function fetchById($id) {

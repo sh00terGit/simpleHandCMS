@@ -7,34 +7,24 @@
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>ITSM PHP Sample task</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style>
-            #content {
-                float: right ;
-                width: 100% ;
-            }
-            #navbar {
-                float: right;
-                width: 20%;
-            }
-
-            #footer {
-                clear: both ;
-            }
-
-            #header {
-                text-align: center ;
-            }
-            
-            #container {
-                margin-left: 10%;
-                width: 80%;
-                text-align: center;
-            }
-        </style>
+        <script> BASEURL = "<?= URL; ?>";</script>
+        <link rel="stylesheet" type="text/css" href="/public/css/main.css"/>
+        <link href="/public/css/stylesheet.css" rel="stylesheet" type="text/css" />
     </head>        
     <body>
-        <div id="container">
-            <div id="header">Шапка</div>            
+        <div id="top_bar_black">           
+            <div id="wrapper"> 
+                <div class="nav_button">                    
+                    <a href="<?= URL ?>admin">Admin </a>
+                </div>
+                <div class="nav_button"> 
+                    <a href="<?= URL ?>news">News</a>
+                </div>
+                <div id="header_mainline">ITSM PHP Sample task</div>
+            </div>
+        </div>
+        <div id="content_container">
+

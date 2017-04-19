@@ -27,6 +27,13 @@ class Admin extends Controller {
             }
         }
         
+        public function deleteAjax() {
+            if (isset($_GET['id'])) {
+                $mapper = new NewsMapper();
+                $news = $mapper->delete($_GET['id']);
+            }
+        }
+        
         
         public function saveAjax() {
             if(isset($_POST)) {   
