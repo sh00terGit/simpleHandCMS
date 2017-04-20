@@ -1,13 +1,14 @@
 <?php
 
-/* 
-*
+/*
+ *
  * @author Shipul Andrey 
  *  @position Nod-4 ivc
  * 
  */
+
 Class CommentsModel {
-    
+
     public $id;
     public $text;
     public $newsId;
@@ -21,7 +22,7 @@ Class CommentsModel {
         return $this;
     }
 
-        public function getId() {
+    public function getId() {
         return $this->id;
     }
 
@@ -39,6 +40,4 @@ Class CommentsModel {
         return $this;
     }
 
-
-    
 }

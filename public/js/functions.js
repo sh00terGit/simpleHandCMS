@@ -5,6 +5,8 @@
  * 
  */
 
+
+//function add a comment via AJAX
 function commentMe(newsId) {
     url = BASEURL + "news/commentAjax";
     var request;
@@ -24,19 +26,20 @@ function commentMe(newsId) {
     request.send(params);
 
     request.onreadystatechange = function () {
-        if (this.readyState===4){
-        if (this.status === 200) {
-            document.getElementById("comment").value = "";
-            var commentBlock = document.getElementById("commentBlock");
-            var div = document.createElement('div');
-            div.setAttribute("class", "comment");
-            div.innerText = comment;
-            commentBlock.insertBefore(div, commentBlock.firstChild);
+        if (this.readyState === 4) {
+            if (this.status === 200) {
+                document.getElementById("comment").value = "";
+                var commentBlock = document.getElementById("commentBlock");
+                var div = document.createElement('div');
+                div.setAttribute("class", "comment");
+                div.innerText = comment;
+                commentBlock.insertBefore(div, commentBlock.firstChild);
+            }
         }
     }
 }
-}
 
+//saving data from form via AJAX (update or insert)
 function saveAjax() {
     url = BASEURL + "admin/saveAjax";
     var request;
@@ -51,25 +54,25 @@ function saveAjax() {
     var text = document.getElementById("text").value;
     var id = document.getElementById("id").value;
     var type = document.getElementById("type").value;
-    var params = 'title=' + encodeURIComponent(title) + '&text=' + encodeURIComponent(text) + '&id=' + encodeURIComponent(id) + '&type=' + encodeURIComponent(type);        
+    var params = 'title=' + encodeURIComponent(title) + '&text=' + encodeURIComponent(text) + '&id=' + encodeURIComponent(id) + '&type=' + encodeURIComponent(type);
     request.open('post', url, true);
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    request.send(params);    
-    
+    request.send(params);
+
     request.onreadystatechange = function () {
-        if (this.readyState===4){
-        if (this.status === 200) {
-            location.reload();
-        }
+        if (this.readyState === 4) {
+            if (this.status === 200) {
+                location.reload();
+            }
         }
     }
 
-    
-    
+
+
 }
 
 
-
+// getting visible form
 function viewAddForm() {
     var form = document.getElementById('form');
     form.style.visibility = 'visible';
@@ -79,7 +82,7 @@ function viewAddForm() {
 }
 
 
-
+// delete news via AJAX
 function deleteAjax(id) {
     url = BASEURL + "admin/deleteAjax";
     var elem = document.getElementById(id);
@@ -93,19 +96,20 @@ function deleteAjax(id) {
     }
 
     request.onreadystatechange = function () {
-        if (this.readyState===4){
-        if (this.status === 200) {
-            elem.remove();
-        }
+        if (this.readyState === 4) {
+            if (this.status === 200) {
+                elem.remove();
+            }
         } else if (request.status == 404) {
             alert("Ошибка: запрашиваемый скрипт не найден!");
         }
     }
-    request.open('GET', url+"?id=" + id, true);
+    request.open('GET', url + "?id=" + id, true);
     request.send('');
 
 }
 
+// getting news data via AJAX
 function selectAjax(id) {
     url = BASEURL + "admin/selectAjax";
     var request;
@@ -119,6 +123,8 @@ function selectAjax(id) {
 
     request.onreadystatechange = function () {
         if (request.status == 200) {
+            // response glued by '|' char
+            // splitted it
             var requestArr = request.responseText.split("|");
             document.getElementById("form").style.visibility = 'visible';
             document.getElementById("title").value = requestArr[0];

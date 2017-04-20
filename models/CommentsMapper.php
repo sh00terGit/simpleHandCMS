@@ -9,8 +9,13 @@
 
 Class CommentsMapper extends Mapper {
     
-
-    public function fetchByNewsId($newsId) {
+    /**
+     * Method fetch all comment from news by news id
+     * 
+     * @param $newsId
+     * @return array comments objects
+     */
+        public function fetchByNewsId($newsId) {
         $query = "SELECT id,newsId,text FROM comments WHERE newsId =$newsId ORDER BY id DESC";
         $result = mysql_query($query);
         if (!$result) {
@@ -29,7 +34,14 @@ Class CommentsMapper extends Mapper {
         
     }
     
-    public function insert( $newsId, $text) {
+    /**
+     * Insert new comment in comments table 
+     * 
+     * @param int $newsId 
+     * @param string $text 
+     * @return void
+     */
+        public function insert( $newsId, $text) {
          $query = "INSERT INTO comments (newsId,text) VALUES ('$newsId','$text')";
         $result = mysql_query($query);
         if (!$result) {

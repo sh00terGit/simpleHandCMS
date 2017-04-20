@@ -9,16 +9,16 @@
 
 Class Mapper extends PDO{
 
-    protected $db;
+    protected $db;  // db pointer
 
-    // соединение с базой данных , база данных указана в config.php
+    //connection with DB
     public function __construct() {
         $this->db = mysqli_connect(DB_HOST, DB_USER, DB_PASS);
         if (!$this->db) {
-            exit("Ошибка соединения с базой данных" . mysql_error());
+            exit("Error connection" . mysql_error());
         }
-        if (!mysqli_select_db( $this->db,DB_NAME)) {
-            exit("нет такой базы данных</br>" . mysqli_error($this->db));
+        if (!mysql_select_db(DB_NAME, $this->db)) {
+            exit("No that database" . mysql_error());
         }
         mysqli_query($this->db,"SET NAMES 'UTF8'");
         mysqli_query($this->db,"SET CHARACTER SET 'UTF8'");

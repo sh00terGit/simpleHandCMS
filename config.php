@@ -1,5 +1,4 @@
 <?php
-//  SLASH (/) AFTER A PATH
 define('URL', "http://".$_SERVER['HTTP_HOST']."/");
 define('LIB', 'library/');
 define('DB_TYPE', 'mysqli');

@@ -8,7 +8,7 @@
  */
 
 class Bootstrap {
-	function __construct() {
+	public function __construct() {
 		$url = isset($_GET['route']) ? $_GET['route'] : null;
 		$url = rtrim($url, '/');
 		$url = filter_var($url, FILTER_SANITIZE_URL);
@@ -27,8 +27,6 @@ class Bootstrap {
 			return false;
 		}
 		$controller = new $url[0];
-		//$controller->loadModel($url[0]);
-		// calling methods
 		if (isset($url[2])) {
 			if (method_exists($controller, $url[1])) {
 				$controller->{$url[1]}($url[2]);
@@ -50,7 +48,7 @@ class Bootstrap {
 		
 	}
 	
-	function error() {
+	public function error() {
 		require 'controllers/error.php';
 		$controller = new Error();
 		$controller->index();

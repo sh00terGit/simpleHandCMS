@@ -1,5 +1,6 @@
-
-<div class="col50">    
+<!--right half page-->
+<div class="col50"> 
+    <?php if($this->news) { ?>
     <table id="newsTable">
         <th>News</th>
         <th>Date refresh</th>
@@ -17,9 +18,13 @@
         <?php endforeach; ?>
 
     </table>
-   
+    <?php } else { ?>
+        <button href="#"  onclick="viewAddForm()">add new data of news</button>
+    <?php } ?>
 </div>
+<!-- /right half page-->
 
+<!--left half page-->
 <div class="col50" >
     
     <form id="form">
@@ -34,6 +39,6 @@
         <input type="submit" value="Save"  onclick="saveAjax()">
     </form>
 </div>
-
+<!--/left half page-->
 
 <script src="/public/js/functions.js"></script>

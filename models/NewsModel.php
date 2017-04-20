@@ -14,7 +14,7 @@ Class NewsModel {
     public $title;
     public $text;
     public $date;
-    public $shortText;
+    public $shortText;  // full text trimmed to 200 char value 
 
 
     public function getId() {

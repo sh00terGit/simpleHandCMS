@@ -1,8 +1,8 @@
 <div id="dataNews">
-    <div id="news_content_title">
+    <div class="news_content_title">
         <?=$this->news->getTitle()?>
     </div>
-    <div id="news_content_text">
+    <div class="news_content_text">
         <p><?=$this->news->getText()?></p>
     </div>    
 </div>

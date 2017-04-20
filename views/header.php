@@ -11,10 +11,10 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script> BASEURL = "<?= URL; ?>";</script>
-        <link rel="stylesheet" type="text/css" href="/public/css/main.css"/>
         <link href="/public/css/stylesheet.css" rel="stylesheet" type="text/css" />
     </head>        
     <body>
+        <!-- top bar navigate -->
         <div id="top_bar_black">           
             <div id="wrapper"> 
                 <div class="nav_button"> 
@@ -29,6 +29,9 @@
                 
                 <div id="header_mainline">ITSM PHP Sample task</div>
             </div>
-        </div>
+        </div>        
+        <!-- /top bar navigate -->
+        
+        <!--main content there-->
         <div id="content_container">
 
