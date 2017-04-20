@@ -82,7 +82,7 @@ body {
 }
 
 #header_mainline {
-	width:500px;
+	
 	float: left;
         font-style: italic;
         color: white;
@@ -138,11 +138,11 @@ body {
     font-size: 20px;
     margin-bottom:20px;
     padding: 20px;
-    background-color: black;
+    background-color: dimgray;
     border-radius: 15px;
     color: #FFFFFF;
 }
 
-#commentBlock {
+#commentBlock {    
     margin-top: 20px;
 }

@@ -17,12 +17,16 @@
     <body>
         <div id="top_bar_black">           
             <div id="wrapper"> 
+                <div class="nav_button"> 
+                    <a href="<?= URL ?>index">Task</a>
+                </div>
                 <div class="nav_button">                    
                     <a href="<?= URL ?>admin">Admin </a>
                 </div>
                 <div class="nav_button"> 
                     <a href="<?= URL ?>news">News</a>
                 </div>
+                
                 <div id="header_mainline">ITSM PHP Sample task</div>
             </div>
         </div>

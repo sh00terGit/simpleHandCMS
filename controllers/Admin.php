@@ -36,9 +36,10 @@ class Admin extends Controller {
         
         
         public function saveAjax() {
-            if(isset($_POST)) {   
+            if($_POST) {   
                 $mapper = new NewsMapper();
-                $mapper->save($_POST);
+                $id = $mapper->save($_POST);
+                echo $id;
             }
             
         }

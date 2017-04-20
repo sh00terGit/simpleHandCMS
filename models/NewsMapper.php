@@ -14,8 +14,8 @@ Class NewsMapper extends Mapper {
     }
 
     public function fetchByPage($page) {
-        $query = "SELECT id,title,text,date FROM news LIMIT " . LIMIT_VALUE . " OFFSET " . LIMIT_VALUE * ($page - 1);
-        $result = mysqli_query($this->db,$query);
+        $query = "SELECT id,title,text,date FROM news  ORDER BY id DESC LIMIT " . LIMIT_VALUE . " OFFSET " . LIMIT_VALUE * ($page - 1);
+        $result = mysql_query($query);
         if (!$result) {
             exit(mysqli_error($this->db));
         }
@@ -46,14 +46,11 @@ Class NewsMapper extends Mapper {
         public function save($data) {
         switch ($data['type']) {
                     case 'update':
-                        $this->update($data['title'],$data['text'],$data['id']);   
-                        break;
+                        $this->update($data['title'],$data['text'],$data['id']);
+                        return $data['id'];
                     case 'add':
-                        $this->insert($data['title'],$data['text']);   
-                        break;
-                    
-                    default:
-                        break;
+                        $id =$this->insert($data['title'],$data['text']);
+                        return $id;
                 }
     }
 
@@ -63,6 +60,7 @@ Class NewsMapper extends Mapper {
         if (!$result) {
             exit(mysql_error());
         }
+        return mysql_insert_id();
     }
 
     public function update($title,$text ,$id) {

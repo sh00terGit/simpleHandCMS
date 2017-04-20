@@ -9,15 +9,11 @@
 class View {
 	function __construct() {
 	}
-	public function render($name, $noInclude = false)
+	public function render($name)
 	{
-		if ($noInclude == true) {
-			require 'views/' . $name . '.php';	
-		}
-		else {
-			require 'views/header.php';
-			require 'views/' . $name . '.php';
-			require 'views/footer.php';	
-		}
+            require 'views/header.php';
+            require 'views/' . $name . '.php';
+            require 'views/footer.php';	
+
 	}
 }

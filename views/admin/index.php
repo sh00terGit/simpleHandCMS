@@ -31,10 +31,9 @@
         <label for="title">News data</label>
         <textarea  name="text" id="text" cols="75" rows="10"></textarea>
         <p></p>
-        <input type="submit" onclick="saveAjax()" value="Save">
+        <input type="submit" value="Save"  onclick="saveAjax()">
     </form>
 </div>
 
 
 <script src="/public/js/functions.js"></script>
-

@@ -35,17 +35,6 @@ function commentMe(newsId) {
         }
     }
 }
-
-
-}
-
-
-function viewAddForm() {
-    var form = document.getElementById('form');
-    form.style.visibility = 'visible';
-    form.reset();
-    document.getElementById("type").value = 'add';
-
 }
 
 function saveAjax() {
@@ -62,12 +51,33 @@ function saveAjax() {
     var text = document.getElementById("text").value;
     var id = document.getElementById("id").value;
     var type = document.getElementById("type").value;
-    var params = 'title=' + encodeURIComponent(title) + '&text=' + encodeURIComponent(text) + '&id=' + encodeURIComponent(id) + '&type=' + encodeURIComponent(type);
+    var params = 'title=' + encodeURIComponent(title) + '&text=' + encodeURIComponent(text) + '&id=' + encodeURIComponent(id) + '&type=' + encodeURIComponent(type);        
     request.open('post', url, true);
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    request.send(params);
-    location.reload();
+    request.send(params);    
+    
+    request.onreadystatechange = function () {
+        if (this.readyState===4){
+        if (this.status === 200) {
+            location.reload();
+        }
+        }
+    }
+
+    
+    
 }
+
+
+
+function viewAddForm() {
+    var form = document.getElementById('form');
+    form.style.visibility = 'visible';
+    form.reset();
+    document.getElementById("type").value = 'add';
+
+}
+
 
 
 function deleteAjax(id) {
@@ -82,16 +92,16 @@ function deleteAjax(id) {
         return;
     }
 
-
-
     request.onreadystatechange = function () {
-        if (request.status == 200) {
+        if (this.readyState===4){
+        if (this.status === 200) {
             elem.remove();
+        }
         } else if (request.status == 404) {
             alert("Ошибка: запрашиваемый скрипт не найден!");
         }
     }
-    request.open('GET', url + "?id=" + id, true);
+    request.open('GET', url+"?id=" + id, true);
     request.send('');
 
 }

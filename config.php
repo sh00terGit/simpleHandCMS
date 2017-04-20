@@ -1,6 +1,6 @@
 <?php
 //  SLASH (/) AFTER A PATH
-define('URL', 'http://testtask.local:81/');
+define('URL', "http://".$_SERVER['HTTP_HOST']."/");
 define('LIB', 'library/');
 define('DB_TYPE', 'mysqli');
 define('DB_HOST', 'localhost');
