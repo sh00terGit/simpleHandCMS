@@ -43,19 +43,17 @@ function commentMe(newsId) {
 function saveAjax() {
     url = BASEURL + "admin/saveAjax";
     var request;
-    if (window.XMLHttpRequest) {
-        request = new XMLHttpRequest();
-    } else if (window.ActiveXObject) {
-        request = new ActiveXObject("Microsoft.XMLHTTP");
-    } else {
-        return;
-    }
+    request = new XMLHttpRequest();
     var title = document.getElementById("title").value;
     var text = document.getElementById("text").value;
     var id = document.getElementById("id").value;
     var type = document.getElementById("type").value;
+    title = escapeHtml(title);
+    text = escapeHtml(text);
+    id = escapeHtml(id);
+    type = escapeHtml(type);
     var params = 'title=' + encodeURIComponent(title) + '&text=' + encodeURIComponent(text) + '&id=' + encodeURIComponent(id) + '&type=' + encodeURIComponent(type);
-    request.open('post', url, true);
+    request.open('POST', url, true);
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     request.send(params);
 
@@ -66,9 +64,18 @@ function saveAjax() {
             }
         }
     }
+}
 
-
-
+function escapeHtml(text) {
+    var map = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '\''
+    };
+ 
+    return text.replace(/[&<>"']/g, function(m) { return map[m]; });
 }
 
 

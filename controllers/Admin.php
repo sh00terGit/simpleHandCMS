@@ -55,11 +55,18 @@ class Admin extends Controller {
      * @return id news
      */
         public function saveAjax() {
-        if ($_POST) {
+            $type = urldecode($_POST['type']);
+            $text = urldecode($_POST['text']);
+            $title = urldecode($_POST['title']);
+            $id = urldecode($_POST['id']);
             $mapper = new NewsMapper();
-            $id = $mapper->save($_POST);
-            echo $id;
-        }
+            $id = $mapper->save($type,$text,$title,$id);
+            
+            
+             $fd = fopen("text.txt", 'w+') or die("не удалось открыть файл");
+            fwrite($fd,$text);
+            fclose($fd);
+        
     }
 
 }

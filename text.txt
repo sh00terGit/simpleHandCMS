@@ -1,0 +1,5 @@
+You’ve created a new Laravel app for your client and deployed it on the production server. Everything was working fine till a customer has a problem with the app because of some buggy code. He immediately leaves the app, and the same thing happens with multiple customers before you know about the bug. You fix the bug, and then everything is on track.
+
+But what if you were notified immediately through e-mail (or another service) about the bug and you fix it ASAP. In Laravel, this can be done easily and in this post, we’re going to learn how.
+
+In Laravel, all exceptions are handled by the App\Exceptions\Handler class. This class contains two methods: report and render. We’re only interested in report method; it is used to log exceptions or send them to an external service like Bugsnag or Sentry. By default, the report method simply passes the exception to the base class where the exception is logged. However, we can use it to send an email to developers about the exception.

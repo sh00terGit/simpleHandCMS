@@ -36,7 +36,7 @@
         <label for="title">News data</label>
         <textarea  name="text" id="text" cols="75" rows="10"></textarea>
         <p></p>
-        <input type="submit" value="Save"  onclick="saveAjax()">
+        <input type="button" value="Save"  onclick="saveAjax()">
     </form>
 </div>
 <!--/left half page-->

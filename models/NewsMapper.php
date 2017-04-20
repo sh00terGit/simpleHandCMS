@@ -56,13 +56,13 @@ Class NewsMapper extends Mapper {
      * @param array $data  
      * @return int $id   
      */
-        public function save($data) {
-        switch ($data['type']) {
+        public function save($type,$text,$title,$id) {
+        switch ($type) {
             case 'update':
-                $this->update($data['title'], $data['text'], $data['id']);
-                return $data['id'];
+                $this->update($title,$text,$id);
+                return $id;
             case 'add':
-                $id = $this->insert($data['title'], $data['text']);
+                $id = $this->insert($title,$text);
                 return $id;
         }
     }
