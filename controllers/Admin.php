@@ -61,11 +61,6 @@ class Admin extends Controller {
             $id = urldecode($_POST['id']);
             $mapper = new NewsMapper();
             $id = $mapper->save($type,$text,$title,$id);
-            
-            
-             $fd = fopen("text.txt", 'w+') or die("не удалось открыть файл");
-            fwrite($fd,$text);
-            fclose($fd);
         
     }
 
