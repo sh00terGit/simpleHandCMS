@@ -10,3 +10,4 @@ RewriteCond %{REQUEST_FILENAME} !-l
 #getting in $_GET query string
 RewriteRule ^(.+)$ index.php?route=$1 [QSA,L]
 
+
