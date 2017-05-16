@@ -1,8 +1,8 @@
 @charset "UTF-8";
 
 body {
-    margin:0px;
-    padding:0px;
+    margin:0;
+    padding:0;
     background-color: azure;
     font-size: 18px;
 }
@@ -55,7 +55,7 @@ body {
 
 #header_mainline {
 
-    float: left;
+
     font-style: italic;
     color: white;
     margin-left: 100px;

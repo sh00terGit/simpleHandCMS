@@ -11,15 +11,15 @@ class Bootstrap {
 	public function __construct() {
 		$url = isset($_GET['route']) ? $_GET['route'] : null;
 		$url = rtrim($url, '/');
-		$url = filter_var($url, FILTER_SANITIZE_URL);
 		$url = explode('/', $url);
 		if (empty($url[0])) {
-			require 'controllers/index.php';
-			$controller = new Index();
-			$controller->index();
-			return false;
-		}
-		$file = 'controllers/' . $url[0] . '.php';
+            require "controllers/Index.php";
+
+            $controller = new Index();
+            $controller->index();
+            return false;
+        }
+		$file = 'controllers/' . ucfirst($url[0]) . '.php';
 		if (file_exists($file)) {
 			require $file;
 		} else {
@@ -49,7 +49,7 @@ class Bootstrap {
 	}
 	
 	public function error() {
-		require 'controllers/error.php';
+		require 'controllers/Error';
 		$controller = new Error();
 		$controller->index();
 		return false;

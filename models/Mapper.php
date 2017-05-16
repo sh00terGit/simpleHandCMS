@@ -17,8 +17,8 @@ Class Mapper extends PDO{
         if (!$this->db) {
             exit("Error connection" . mysql_error());
         }
-        if (!mysql_select_db(DB_NAME, $this->db)) {
-            exit("No that database" . mysql_error());
+        if (!mysqli_select_db($this->db, DB_NAME)){
+            exit("No that database" . mysqli_error());
         }
         mysqli_query($this->db,"SET NAMES 'UTF8'");
         mysqli_query($this->db,"SET CHARACTER SET 'UTF8'");

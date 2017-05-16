@@ -17,13 +17,13 @@ Class CommentsMapper extends Mapper {
      */
         public function fetchByNewsId($newsId) {
         $query = "SELECT id,newsId,text FROM comments WHERE newsId =$newsId ORDER BY id DESC";
-        $result = mysql_query($query);
+        $result = mysqli_query($this->db, $query);
         if (!$result) {
-            exit(mysql_error());
+            exit(mysqli_error($this->db));
         }
         $comments = array();
-        for ($i = 0; $i < mysql_num_rows($result); $i++) {
-            $row = mysql_fetch_array($result, MYSQL_ASSOC);
+        for ($i = 0; $i < mysqli_num_rows($result); $i++) {
+            $row = mysqli_fetch_array($result);
             $nextComment = new CommentsModel();
             $nextComment->setId($row['id'])
                     ->setNewsId($row['newsId'])
@@ -43,9 +43,9 @@ Class CommentsMapper extends Mapper {
      */
         public function insert( $newsId, $text) {
          $query = "INSERT INTO comments (newsId,text) VALUES ('$newsId','$text')";
-        $result = mysql_query($query);
+        $result = mysqli_query($this->db, $query);
         if (!$result) {
-            exit(mysql_error());
+            exit(mysqli_error($this->db));
         }
     }
 

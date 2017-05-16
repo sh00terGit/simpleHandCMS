@@ -3,6 +3,7 @@ require 'config.php';
 // This is autoloader for libs files.
 function __autoload($class)
 {
+
     if(file_exists( LIB .$class.".php")){
             require_once LIB. $class.".php";
     }

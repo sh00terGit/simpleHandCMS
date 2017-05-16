@@ -19,8 +19,8 @@ Class NewsMapper extends Mapper {
      * @return array news objects
      */
         public function fetchByPage($page) {
-        $query = "SELECT id,title,text,date FROM news  ORDER BY id DESC LIMIT " . LIMIT_VALUE . " OFFSET " . LIMIT_VALUE * ($page - 1);
-        $result = mysql_query($query);
+        $query = "SELECT *  FROM news  ORDER BY id DESC LIMIT " . LIMIT_VALUE . " OFFSET " . LIMIT_VALUE * ($page - 1);
+        $result = mysqli_query($this->db, $query);
         if (!$result) {
             exit(mysqli_error($this->db));
         }
@@ -42,11 +42,11 @@ Class NewsMapper extends Mapper {
      */
         public function getCountNews() {
         $query = "SELECT count(*) as countRows FROM news";
-        $result = mysql_query($query);
+        $result = mysqli_query($this->db, $query);
         if (!$result) {
-            exit(mysql_error());
+            exit(mysqli_error($this->db));
         }
-        $row = mysql_fetch_assoc($result);
+        $row = mysqli_fetch_assoc($result);
         $count = $row['countRows'];
         return $count;
     }
@@ -77,11 +77,11 @@ Class NewsMapper extends Mapper {
         $title = strip_tags($title);
         $text = strip_tags($text);
         $query = "INSERT INTO news (title,text) VALUES ('$title','$text')";
-        $result = mysql_query($query);
+        $result = mysqli_query($this->db, $query);
         if (!$result) {
-            exit(mysql_error());
+            exit(mysqli_error($this->db));
         }
-        return mysql_insert_id();
+        return mysqli_insert_id();
     }
 
     /**
@@ -95,9 +95,9 @@ Class NewsMapper extends Mapper {
         $title = strip_tags($title);
         $text = strip_tags($text);
         $query = "UPDATE news SET title ='$title' ,text = '$text' WHERE id = $id";
-        $result = mysql_query($query);
+        $result = mysqli_query($this->db, $query);
         if (!$result) {
-            exit(mysql_error());
+            exit(mysqli_error($this->db));
         }
     }
 
@@ -107,9 +107,9 @@ Class NewsMapper extends Mapper {
      */
         public function delete($id) {
         $query = "DELETE FROM news WHERE id = $id";
-        $result = mysql_query($query);
+        $result = mysqli_query($this->db, $query);
         if (!$result) {
-            exit(mysql_error());
+            exit(mysqli_error($this->db));
         }
     }
 
@@ -122,14 +122,15 @@ Class NewsMapper extends Mapper {
         $query = "SELECT id,title,text,date FROM news WHERE id =$id LIMIT 1";
         $result = mysqli_query($this->db,$query);
         if (!$result) {
-            exit(mysql_error($this->db));
+            exit(mysqli_error($this->db));
         }
-        $row = mysql_fetch_row($result, MYSQL_ASSOC);
+        $row = mysqli_fetch_row($result);
         $nextNews = new NewsModel();
-        $nextNews->setId($row['id'])
-                ->setDate($row['date'])
-                ->setText($row['text'])
-                ->setTitle($row['title']);
+        $nextNews->setId($row[0])
+                ->setDate($row[3])
+                ->setText($row[2])
+                ->setTitle($row[1]);
+
         return $nextNews;
     }
 
