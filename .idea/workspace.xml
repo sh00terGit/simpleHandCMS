@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9278e850-7d1c-4e67-8627-e0468910e759" name="Default" comment="edited for php-7">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.htaccess" afterPath="$PROJECT_DIR$/.htaccess" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.php" afterPath="$PROJECT_DIR$/config.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/Bootstrap.php" afterPath="$PROJECT_DIR$/library/Bootstrap.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/CommentsMapper.php" afterPath="$PROJECT_DIR$/models/CommentsMapper.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/Mapper.php" afterPath="$PROJECT_DIR$/models/Mapper.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/NewsMapper.php" afterPath="$PROJECT_DIR$/models/NewsMapper.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/stylesheet.css" afterPath="$PROJECT_DIR$/public/css/stylesheet.css" />
-    </list>
+    <list default="true" id="9278e850-7d1c-4e67-8627-e0468910e759" name="Default" comment="edited for php-7" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -409,16 +400,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1494967681095</updated>
-      <workItem from="1494967692809" duration="4743000" />
+      <workItem from="1494967692809" duration="5135000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4743000" />
+    <option name="totallyTimeSpent" value="5135000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="0" width="1368" height="742" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
