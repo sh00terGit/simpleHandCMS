@@ -4,6 +4,6 @@ define('LIB', 'library/');
 define('DB_TYPE', 'mysqli');
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'testtask');
-define('DB_USER', 'root');
-define('DB_PASS', 'root');
+define('DB_USER', 'test');
+define('DB_PASS', 'test');
 define('LIMIT_VALUE', '5');   //value news per page
